@@ -1,0 +1,9 @@
+package com.projectmanagement.saasovation.team.infrustructure;
+
+import com.projectmanagement.saasovation.team.domain.Member;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IMemberRepository extends JpaRepository<Member, Long> {
+
+
+}

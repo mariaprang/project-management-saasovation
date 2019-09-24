@@ -1,0 +1,140 @@
+html {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans", sans-serif;
+}
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#sidebar {
+    width: 20%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #009999; */
+    background-color: #0059b3;
+    padding: 10px;
+    padding-top: 5%;
+}
+#sidebar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.drop-style {
+    -webkit-appearance: none;
+    box-sizing: content-box;
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.nav-btn {
+    width: 100%;
+    color: white;
+    margin-bottom: 10px;
+    font-size: 17px;
+    padding: 5px;
+}
+.nav-btn:hover {
+    cursor: pointer;
+    /* background-color: #008080; */
+    background-color: #0080ff;
+}
+.main {
+    width: 100%;
+    height: 100vh;
+}
+
+.heading-wrap{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.create-proj-btn{
+    background-color:#bfbfbf;
+    border-radius: 4px;
+    color: #595959;
+    font-weight: bold;
+}
+.create-proj-btn:hover{
+    background-color:#cccccc;
+}
+.hover-ef:hover{
+    cursor: pointer;
+}
+.main-wrap {
+    width: 95%;
+    margin: 2%;
+    /* border: 1px solid black; */
+}
+.project-table {
+    width: 95%;
+    /* border: 1px solid black; */
+    display: grid;
+}
+
+.flex-grid {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.project-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+.flex-grid .col {
+    flex: 1;
+}
+.col-item {
+    width: calc(100% / 4);
+}
+
+.name,
+.pr-type,
+.pr-owner,
+.project-name,
+.project-type,
+.project-owner {
+    font-size: 21px;
+    font-weight: bold;
+    color: #808080;
+}
+
+.project-name {
+    color: #3440eb;
+    font-size: 19px;
+}
+.project-type,
+.project-owner {
+    color: black;
+    font-size: 19px;
+    font-weight: normal;
+}
+
+#search-bar{
+    width: 30%;
+    margin-bottom: 50px;
+}
+

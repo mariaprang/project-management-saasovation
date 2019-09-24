@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: head">
+    <title>OfficePlanner</title>
+</head>
+
+<body>
+<div class="content">
+    <div id="sidebar">
+        <div id="sidebar-wrap">
+            <form action="">
+                <input type="submit" value="Dashboard" class="nav-btn drop-style">
+            </form>
+            <form action="">
+                <input type="submit" value="Current Projects" class="nav-btn drop-style">
+            </form>
+            <form action="">
+                <input type="submit" value="New Project" class="nav-btn drop-style">
+            </form>
+        </div>
+    </div>
+    <div class="main">
+        <div class="main-wrap">
+            <div class="heading-wrap">
+                <div class="dashboard-title">Projects</div>
+                <form action="" style="margin-right: 30px; margin-top: 20px;">
+                    <input type="submit" value="Create Project" class="create-proj-btn drop-style">
+                </form>
+            </div>
+            <div id="search-bar">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search for a project.."
+                               aria-label="Recipient's username"
+                               aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                    <span class="input-group-text hover-ef" id="basic-addon2">
+                      <i class="fa fa-search" style="color: #3440eb;"></i>
+                    </span>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="project-table flex-grid">
+
+                <div class="table-heading project-row">
+                    <div class="name col-item">Name</div>
+                    <div class="pr-type col-item">Type</div>
+                    <div class="pr-owner col-item">Project owner</div>
+                </div>
+
+                <div class="project-row">
+                    <div class="project-name col-item">Test Project Name</div>
+                    <div class="project-type col-item">Test Project Type</div>
+                    <div class="project-owner col-item">Test Project Owner</div>
+                    <form action="" class="col-item">
+                        <!--class="nav-btn drop-style"-->
+                        <input type="submit" value="Edit Project" class="create-proj-btn drop-style">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+</body>
+</body>
+</html>
