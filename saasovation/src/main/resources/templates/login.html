@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: head">
+    <meta charset="utf-8">
+</head>
+<body>
+<div class="container">
+
+    <div class="col-md-6  offset-md-3" style="margin-top: 20%;">
+        <form class="text-center" th:action="@{/login}" method="post">
+            <!-- <div th:if="${param.logout}">
+                <div class="alert alert-info">You have been logged out.</div>
+            </div> -->
+
+            <div class="form-group">
+                <input type="text" name="email" id="email"
+                       class="form-control input-lg" placeholder="email" required="true"
+                       autofocus="true">
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" id="password"
+                       class="form-control input-lg" placeholder="password"
+                       required="true">
+            </div>
+            <!-- <div class="input-group">
+                <div class="checkbox">
+                    <label> <input type="checkbox" th:name="remember-me"
+                        th:value="true">&nbsp;remember me
+                    </label>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <input type="submit" class="btn btn-primary btn-block"
+                           th:value="Login">
+                </div>
+            </div>
+
+
+            <div th:if="${param.error}">
+                <br>
+                <div class="alert alert-danger">
+                    <span>Either username or password are incorrect, please try again </span>
+                </div>
+            </div>
+        </form>
+        <br>
+        <div style="color: green; font-size: 18px;"> New user? </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <form class="form-inline" th:action="@{/register}" method="get">
+                <input type="submit" class="btn btn-success btn-block"
+                th:value="Register">
+                </form>
+
+                <!--<a th:href="@{/signup}" class="btn btn-success btn-block"> Register</a>-->
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
