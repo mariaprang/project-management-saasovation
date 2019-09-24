@@ -76,6 +76,7 @@ body {
 }
 .create-proj-btn:hover{
     background-color:#cccccc;
+    cursor: pointer;
 }
 .hover-ef:hover{
     cursor: pointer;

@@ -1,4 +1,4 @@
-package com.projectmanagement.saasovation.project;
+package com.projectmanagement.saasovation.project.application;
 
 import com.projectmanagement.saasovation.team.domain.Member;
 import org.springframework.security.core.context.SecurityContextHolder;
