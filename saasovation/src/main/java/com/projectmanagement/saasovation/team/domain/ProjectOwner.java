@@ -8,7 +8,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "project_owner")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class ProjectOwner extends Member {
 
     @Transient

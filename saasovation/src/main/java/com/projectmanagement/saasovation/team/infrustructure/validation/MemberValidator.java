@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberValidator implements IMemberValidator {
 
+    //TODO: implement this
     @Override
     public boolean memberIsValid(Member member) {
         return true;
