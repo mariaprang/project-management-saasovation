@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.security.Principal;
+
 @Controller
 public class DashboardController {
 
@@ -18,6 +20,7 @@ public class DashboardController {
 //        List <CalendarDayEntry> sickDays = userService.getAllSickDays(currentUser);
 //        List <CalendarDayEntry> homeOfficeDays = userService.getAllHomeOfficeDays(currentUser);
 
+        model.addAttribute("member", currentUser);
         model.addAttribute("first_name", currentUser.getFirstName());
         model.addAttribute("last_name", currentUser.getLastName());
 //        model.addAttribute("homeOfficeDays", homeOfficeDays);
@@ -25,5 +28,10 @@ public class DashboardController {
 //        model.addAttribute("totalSickDays", sickDays.size());
 //        model.addAttribute("totalHomeOfficeDays", homeOfficeDays.size());
         return "index";
+    }
+
+    @RequestMapping(value = "/user")
+    public Principal user(Principal principal) {
+        return principal;
     }
 }

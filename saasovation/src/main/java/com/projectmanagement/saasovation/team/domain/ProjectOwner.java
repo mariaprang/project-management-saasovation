@@ -1,4 +1,4 @@
 package com.projectmanagement.saasovation.team.domain;
 
-public class ProductOwner {
+public class ProjectOwner {
 }
