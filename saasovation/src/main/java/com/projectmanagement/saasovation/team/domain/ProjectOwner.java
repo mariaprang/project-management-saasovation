@@ -19,6 +19,8 @@ public class ProjectOwner extends Member {
         projects = new HashSet <>();
     }
 
+    public ProjectOwner(){super();}
+
 
     public boolean addProject(Project project) {
         return projects.add(project);

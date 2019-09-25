@@ -24,17 +24,12 @@ public class DashboardController {
     public String getUserAccount(Model model) {
         Member currentUser = (Member) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("member", currentUser);
-//        List<CalendarDayEntry> holidays = userService.getAllHolidayDays(currentUser);
-//        List <CalendarDayEntry> sickDays = userService.getAllSickDays(currentUser);
-//        List <CalendarDayEntry> homeOfficeDays = userService.getAllHomeOfficeDays(currentUser);
-
         model.addAttribute("member", currentUser);
         model.addAttribute("first_name", currentUser.getFirstName());
         model.addAttribute("last_name", currentUser.getLastName());
-//        model.addAttribute("homeOfficeDays", homeOfficeDays);
-//        model.addAttribute("totalHolidays", holidays.size());
-//        model.addAttribute("totalSickDays", sickDays.size());
-//        model.addAttribute("totalHomeOfficeDays", homeOfficeDays.size());
+
+        List<Project> projectList = projectRepository.findAllProjects();
+        model.addAttribute("projects", projectList);
         return "index";
     }
 
