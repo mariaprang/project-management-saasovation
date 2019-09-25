@@ -44,10 +44,13 @@ public class InitialData {
                 "mike@email.com", "mike", passwordEncoder.encode("mike"), Role.USER);
 
         Project project = new Project("Marketing Creatives", projectOwner, ProjectType.Business.getMessage());
+        Project project2 = new Project("Travel Service Desk", projectOwner, ProjectType.ServiceDesk.getMessage());
 
         try {
             memberRepository.saveMember(member);
+            memberRepository.saveMember(projectOwner);
             projectRepository.saveProject(project);
+            projectRepository.saveProject(project2);
         } catch (Exception ex) {
             log.info(ex.getMessage());
         }

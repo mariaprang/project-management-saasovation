@@ -1,5 +1,6 @@
 package com.projectmanagement.saasovation.project.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projectmanagement.saasovation.team.domain.BaseEntity;
 import com.projectmanagement.saasovation.team.domain.ProjectOwner;
 
@@ -21,8 +22,15 @@ public class Project extends BaseEntity <Long> {
 
     @Column(name = "pr_name", nullable = false, unique = false)
     private String projectName;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "projectowner_id", referencedColumnName = "id")
+    @ManyToOne(
+            fetch = FetchType.LAZY,
+            optional = false
+    )
+    @JoinColumn(
+            name = "proj_owner_id",
+            nullable = false
+    )
+    @JsonIgnore
     private ProjectOwner projectOwner;
 
     @Column(name = "pr_type", nullable = false, unique = false)
