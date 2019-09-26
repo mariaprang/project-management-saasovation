@@ -1,14 +1,13 @@
 package com.projectmanagement.saasovation.team.domain;
 
+import com.projectmanagement.saasovation.project.domain.Project;
 import com.projectmanagement.saasovation.task.domain.Task;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "member")
@@ -31,6 +30,22 @@ public class Member extends BaseEntity<Long> implements UserDetails {
 
     @Column(name = "role", nullable = false)
     private Role role;
+
+//    @OneToMany(mappedBy = "project")
+//    private List<Project> items = new ArrayList<Project>();
+//
+//
+//    public boolean addProject(Project project){
+//        return items.add(project);
+//    }
+//
+//    public List <Project> getItems() {
+//        return items;
+//    }
+//
+//    public void setItems(List <Project> items) {
+//        this.items = items;
+//    }
 
     @Transient
     private boolean accountNonExpired;

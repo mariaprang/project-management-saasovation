@@ -2,7 +2,7 @@ package com.projectmanagement.saasovation.project.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projectmanagement.saasovation.team.domain.BaseEntity;
-import com.projectmanagement.saasovation.team.domain.ProjectOwner;
+import com.projectmanagement.saasovation.team.domain.Member;
 
 import javax.persistence.*;
 
@@ -22,16 +22,11 @@ public class Project extends BaseEntity <Long> {
 
     @Column(name = "pr_name", nullable = false, unique = false)
     private String projectName;
-    @ManyToOne(
-            fetch = FetchType.LAZY,
-            optional = false
-    )
-    @JoinColumn(
-            name = "proj_owner_id",
-            nullable = false
-    )
-    @JsonIgnore
-    private ProjectOwner projectOwner;
+
+
+    @ManyToOne
+    @JoinColumn(name="project_owner_id")
+    private Member projectOwner;
 
     @Column(name = "pr_type", nullable = false, unique = false)
     private String projectType;
@@ -44,10 +39,10 @@ public class Project extends BaseEntity <Long> {
         super();
     }
 
-    public Project(String projectName, ProjectOwner projectOwner, String projectType) {
+    public Project(String projectName, Member projectOwner, String projectType) {
         super();
-        this.projectName = projectName;
         this.projectOwner = projectOwner;
+        this.projectName = projectName;
         this.projectType = projectType;
     }
 
@@ -60,11 +55,11 @@ public class Project extends BaseEntity <Long> {
         this.projectName = projectName;
     }
 
-    public ProjectOwner getProjectOwner() {
+    public Member getProjectOwner() {
         return projectOwner;
     }
 
-    public void setProjectOwner(ProjectOwner projectOwner) {
+    public void setProjectOwner(Member projectOwner) {
         this.projectOwner = projectOwner;
     }
 
