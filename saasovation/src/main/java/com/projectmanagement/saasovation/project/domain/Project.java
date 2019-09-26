@@ -5,6 +5,7 @@ import com.projectmanagement.saasovation.team.domain.BaseEntity;
 import com.projectmanagement.saasovation.team.domain.Member;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.IndexedEmbedded;
 import org.hibernate.search.annotations.TermVector;
 
 import javax.persistence.*;
@@ -13,22 +14,12 @@ import javax.persistence.*;
 @Indexed
 @Table(name = "project")
 public class Project extends BaseEntity <Long> {
-    /*
-     @ManyToOne(
-          fetch = FetchType.LAZY,
-          optional = false
-  )
-  @JoinColumn(
-          name = "manager_id",
-          nullable = false
-  )
-     */
-
 
     @Field(termVector = TermVector.YES)
     @Column(name = "pr_name", nullable = false, unique = false)
     private String projectName;
 
+    @IndexedEmbedded
     @ManyToOne
     @JoinColumn(name="project_owner_id")
     private Member projectOwner;
@@ -36,10 +27,6 @@ public class Project extends BaseEntity <Long> {
     @Field(termVector = TermVector.YES)
     @Column(name = "pr_type", nullable = false, unique = false)
     private String projectType;
-//
-//    private Team team;
-//
-//    private Set <Task> tasks;
 
     public Project() {
         super();

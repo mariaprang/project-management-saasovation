@@ -45,6 +45,8 @@ public class ProjectSearchService {
         return projectRepository.findAllProjects();
     }
 
+
+
     @Transactional
     public List <Project> fuzzySearchProjects(String searchTerm) {
 

@@ -25,7 +25,7 @@ public class DashboardController {
     @Autowired
     private ProjectSearchService projectSearchService;
 
-    @RequestMapping(value = "/index", method = {RequestMethod.GET})
+    @RequestMapping(value = {"/index","/"}, method = {RequestMethod.GET})
     public String getUserAccount(Model model) {
         Member currentUser = (Member) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("member", currentUser);
