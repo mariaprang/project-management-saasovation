@@ -3,10 +3,14 @@ package com.projectmanagement.saasovation.project.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projectmanagement.saasovation.team.domain.BaseEntity;
 import com.projectmanagement.saasovation.team.domain.Member;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.TermVector;
 
 import javax.persistence.*;
 
 @Entity
+@Indexed
 @Table(name = "project")
 public class Project extends BaseEntity <Long> {
     /*
@@ -20,14 +24,16 @@ public class Project extends BaseEntity <Long> {
   )
      */
 
+
+    @Field(termVector = TermVector.YES)
     @Column(name = "pr_name", nullable = false, unique = false)
     private String projectName;
-
 
     @ManyToOne
     @JoinColumn(name="project_owner_id")
     private Member projectOwner;
 
+    @Field(termVector = TermVector.YES)
     @Column(name = "pr_type", nullable = false, unique = false)
     private String projectType;
 //

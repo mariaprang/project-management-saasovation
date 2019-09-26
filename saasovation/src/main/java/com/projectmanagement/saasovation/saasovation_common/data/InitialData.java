@@ -21,7 +21,6 @@ public class InitialData {
 
     private static final Logger log = LoggerFactory.getLogger(InitialData.class);
 
-
     private final MemberRepository memberRepository;
     private final ProjectRepository projectRepository;
     private final PasswordEncoder passwordEncoder;
@@ -48,7 +47,7 @@ public class InitialData {
         Project project = new Project("Marketing Creatives", member, ProjectType.Business.getMessage());
         Project project2 = new Project("Travel Service Desk", member, ProjectType.ServiceDesk.getMessage());
         Project project3 = new Project("Teams in Space", member2, ProjectType.Software.getMessage());
-        
+
         try {
             memberRepository.saveMember(member);
             memberRepository.saveMember(member2);
