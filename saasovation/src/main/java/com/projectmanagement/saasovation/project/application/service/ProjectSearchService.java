@@ -68,6 +68,8 @@ public class ProjectSearchService {
                     .matching(searchTerm)
                     .createQuery();
 
+            //TODO: implement the functionality of projectowner being search for
+
             org.hibernate.search.jpa.FullTextQuery jpaQuery
                     = fullTextEntityManager.createFullTextQuery(query, Project.class);
             //execute search
@@ -76,7 +78,7 @@ public class ProjectSearchService {
             try {
                 projectsMatchinSearchQuery = jpaQuery.getResultList();
             } catch (NoResultException nre) {
-                //TODO: implement the noresult message
+                //TODO: implement the "search query didn't give any result" message
             }
             return projectsMatchinSearchQuery;
         }

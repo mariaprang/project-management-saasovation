@@ -11,7 +11,7 @@
 
             <div class="user-info" th:text="${member.firstName+' '+member.lastName}"></div>
 
-            <form action="">
+            <form th:action="@{/index}">
                 <input type="submit" value="Dashboard" class="nav-btn drop-style">
             </form>
             <form action="">
