@@ -92,4 +92,11 @@ public class Project extends BaseEntity <Long> {
                 ", projectType='" + projectType + '\'' +
                 '}';
     }
+
+    public boolean checkIFValidOwner(Member member){
+        if(member.equals(this.projectOwner)){
+            return true;
+        }
+        else return false;
+    }
 }

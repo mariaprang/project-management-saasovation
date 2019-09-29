@@ -63,7 +63,7 @@
                          th:text="${project.projectOwner.firstName+' '+project.projectOwner.lastName}"></div>
                     <form action="" class="col-item">
                         <!--class="nav-btn drop-style"-->
-                        <input type="submit" value="Edit Project" class="create-proj-btn drop-style">
+                        <input th:if="${project.checkIFValidOwner(member) == true}" type="submit" value="Edit Project" class="create-proj-btn drop-style">
                     </form>
                 </div>
             </div>
