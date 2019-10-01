@@ -1,8 +1,7 @@
 package com.projectmanagement.saasovation.security.infrastructure;
 
 import com.projectmanagement.saasovation.team.domain.Member;
-import com.projectmanagement.saasovation.team.infrustructure.IMemberRepository;
-import com.projectmanagement.saasovation.team.infrustructure.MemberRepository;
+import com.projectmanagement.saasovation.team.infrustructure.repositories.member.MemberRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

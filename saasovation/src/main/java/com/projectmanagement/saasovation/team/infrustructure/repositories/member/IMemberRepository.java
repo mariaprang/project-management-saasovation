@@ -1,4 +1,4 @@
-package com.projectmanagement.saasovation.team.infrustructure;
+package com.projectmanagement.saasovation.team.infrustructure.repositories.member;
 
 import com.projectmanagement.saasovation.team.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;

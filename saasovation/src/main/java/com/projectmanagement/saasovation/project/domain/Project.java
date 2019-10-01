@@ -1,14 +1,16 @@
 package com.projectmanagement.saasovation.project.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projectmanagement.saasovation.team.domain.BaseEntity;
 import com.projectmanagement.saasovation.team.domain.Member;
+import com.projectmanagement.saasovation.team.domain.Team;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.IndexedEmbedded;
 import org.hibernate.search.annotations.TermVector;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Indexed
@@ -21,12 +23,15 @@ public class Project extends BaseEntity <Long> {
 
     @IndexedEmbedded
     @ManyToOne
-    @JoinColumn(name="project_owner_id")
+    @JoinColumn(name = "project_owner_id")
     private Member projectOwner;
 
     @Field(termVector = TermVector.YES)
     @Column(name = "pr_type", nullable = false, unique = false)
     private String projectType;
+
+    @OneToMany(mappedBy = "project")
+    private Set <Team> teams;
 
     public Project() {
         super();
@@ -37,6 +42,7 @@ public class Project extends BaseEntity <Long> {
         this.projectOwner = projectOwner;
         this.projectName = projectName;
         this.projectType = projectType;
+        this.teams = new HashSet <>();
     }
 
 
@@ -64,6 +70,24 @@ public class Project extends BaseEntity <Long> {
         this.projectType = projectType;
     }
 
+    public Set <Team> getTeams() {
+        return teams;
+    }
+
+    /**
+     * methods typical for aggregate object
+     **/
+    public boolean addTeamToProject(Team team) {
+        return this.teams.add(team);
+    }
+
+    public boolean removeTeamFromProject(Team team) {
+        return this.teams.remove(team);
+    }
+
+    /**
+     * ------------------------------------------
+     **/
     @Override
     public boolean equals(Object toCompareWith) {
         boolean isEqual = false;
@@ -93,10 +117,9 @@ public class Project extends BaseEntity <Long> {
                 '}';
     }
 
-    public boolean checkIFValidOwner(Member member){
-        if(member.equals(this.projectOwner)){
+    public boolean checkIFValidOwner(Member member) {
+        if (member.equals(this.projectOwner)) {
             return true;
-        }
-        else return false;
+        } else return false;
     }
 }

@@ -75,10 +75,8 @@
                         Project Members
                         <i class="fas fa-sort-down" style="color:blue;margin-bottom:3px;"></i>
                     </button>
-                    <div class="dropdown-content">
-                        <div class="single-member">Maria Prangishvili</div>
-                        <div class="single-member">Mikhail Krupskii</div>
-                        <div class="single-member">Nick Prangishvili</div>
+                    <div class="dropdown-content" th:each="member : ${allMembers}">
+                        <div class="single-member" th:text="${member.firstName+' '+member.lastName}"></div>
                     </div>
                 </div>
 
@@ -89,11 +87,9 @@
                     Teams
                     <i class="fas fa-sort-down" style="color:blue;margin-bottom:3px;"></i>
                 </button>
-                <div class="dropdown-content">
-                    <div class="single-member">Maria Prangishvili</div>
-                    <div class="single-member">Mikhail Krupskii</div>
-                    <div class="single-member">Nick Prangishvili</div>
-                </div>
+                <!--<div class="dropdown-content" th:each="member : ${projectMembers}">-->
+                    <!--<div class="single-member" th:text="${member.firstName+' '+member.lastName}"></div>-->
+                <!--</div>-->
             </div></div>
         </div>
     </div>

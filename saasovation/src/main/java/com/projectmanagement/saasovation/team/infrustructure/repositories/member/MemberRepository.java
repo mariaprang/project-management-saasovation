@@ -1,10 +1,10 @@
-package com.projectmanagement.saasovation.team.infrustructure;
+package com.projectmanagement.saasovation.team.infrustructure.repositories.member;
 
 import com.projectmanagement.saasovation.team.domain.Member;
+import com.projectmanagement.saasovation.team.infrustructure.repositories.member.IMemberRepository;
 import com.projectmanagement.saasovation.team.infrustructure.validation.MemberValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 @Repository
 public class MemberRepository {
