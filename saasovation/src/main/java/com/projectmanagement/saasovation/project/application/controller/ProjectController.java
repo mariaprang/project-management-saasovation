@@ -31,19 +31,11 @@ public class ProjectController {
         Set <Member> projectMembers = new HashSet <>();
         model.addAttribute("teams", project.getTeams());
 
-        log.info("---------------------------------------");
-        log.info("TEAM: " + project.getTeams());
-        log.info("---------------------------------------");
-
         for (Team team : project.getTeams()) {
             for (Member member : team.getTeamMembers()) {
                 projectMembers.add(member);
-                log.info("---------------------------------------");
-                log.info("MEMBER: " + member.toString());
-                log.info("---------------------------------------");
             }
         }
-
         model.addAttribute("allMembers", projectMembers);
         return "project";
     }

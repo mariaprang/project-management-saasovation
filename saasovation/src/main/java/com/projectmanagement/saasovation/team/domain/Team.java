@@ -57,7 +57,7 @@ public class Team extends BaseEntity <Long> {
         return teamMembers.add(member);
     }
 
-    public boolean removeTeamMember(Member member){
+    public boolean removeTeamMember(Member member) {
         return teamMembers.remove(member);
     }
 
