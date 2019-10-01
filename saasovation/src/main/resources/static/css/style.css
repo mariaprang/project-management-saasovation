@@ -229,18 +229,16 @@ body {
     margin: 0 auto;
     margin-top: 50px;
 }
-
-input[type="button" i]{
-    -webkit-appearance: none;
-    box-sizing: content-box;
-    border: none;
-    background-image: none;
-    background-color: transparent;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+.sidebar-icon{
+    width: 35px;
+    margin: 50px auto;
 }
-
+.fa-input {
+    cursor:pointer;
+    color: white;
+    font-size: 27px;
+    font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 .project-container{
     padding: 50px;
     padding-top: 30px;
@@ -263,12 +261,6 @@ input[type="button" i]{
     color:blue;
     border: none;
 }
-
-/*.create-proj-btn:hover {*/
-    /*background-color: #cccccc;*/
-    /*cursor: pointer;*/
-/*}*/
-
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
