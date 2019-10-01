@@ -29,5 +29,9 @@ public class ProjectRepository {
         return projectRepository.findAll();
     }
 
+    public Project findProjectById(long id){
+        return projectRepository.findById(id).get();
+    }
+
 
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <!--th:replace="fragments/header :: head-->
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css"
+          th:href="@{../css/style.css}" media="screen">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <div class="home-wrap">
+            <form th:action="@{/index}" style="width: 35px; margin: 0 auto;cursor:pointer;">
+                <input type="button" сlass="drop-style"><i class="fas fa-home" style="font-size: 30px;padding-top: 30px;color:white;"></i></input>
+            </form>
+        </div>
+    </div>
+    <div class="project-bar">
+       <div class="pr-name-wrap">
+           <div class="pr-image">
+               <img src="../img/project-management.png">
+           </div>
+           <div class="pr-name-details">
+               <div class="project-name project-page">Test Project name</div>
+               <div class="pr-type">Test type</div>
+           </div>
+       </div>
+        <div class="project-operations">
+            <div class="operation-wrap">
+                <form action="">
+                    <input type="submit" value="Add member" class="nav-btn drop-style project-btn">
+                </form>
+                <form action="">
+                    <input type="submit" value="Add task" class="nav-btn drop-style project-btn">
+                </form>
+                <form action="">
+                    <input type="submit" value="Add board" class="nav-btn drop-style project-btn">
+                </form>
+                <form action="">
+                    <input type="submit" value="Show my tasks" class="nav-btn drop-style project-btn">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="project-container">a</div>
+</div>
+</body>
+</html>
