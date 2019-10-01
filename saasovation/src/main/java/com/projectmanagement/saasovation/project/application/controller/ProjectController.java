@@ -26,7 +26,7 @@ public class ProjectController {
     @PostMapping(value = {"/projects/{id}"})
     public String getProjectView(@PathVariable("id") long id, Model model) {
         Project project = projectRepository.findProjectById(id);
-        log.info("PROJECT INFO HERE!!!!: "+project.toString());
+        model.addAttribute("project", project);
         return "project";
     }
 }

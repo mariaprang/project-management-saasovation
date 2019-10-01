@@ -7,10 +7,13 @@
     <link rel="stylesheet" type="text/css" href="style.css"
           th:href="@{../css/style.css}" media="screen">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
+<div class="project-page-wrap">
     <div class="sidebar">
         <div class="home-wrap">
             <form th:action="@{/index}" style="width: 35px; margin: 0 auto;cursor:pointer;">
@@ -24,8 +27,8 @@
                <img src="../img/project-management.png">
            </div>
            <div class="pr-name-details">
-               <div class="project-name project-page">Test Project name</div>
-               <div class="pr-type">Test type</div>
+               <div class="project-name project-page" th:text="${project.projectName}"></div>
+               <div class="pr-type" th:text="${project.projectType}"></div>
            </div>
        </div>
         <div class="project-operations">
@@ -45,7 +48,30 @@
             </div>
         </div>
     </div>
-    <div class="project-container">a</div>
+    <div class="project-container">
+        <div class="dashboard-title" th:text="${project.projectName}"></div>
+        <div class="project-heading-wrap">
+            <div id="search-bar">
+
+                <form action="" class="navbar-form" role="search" style="display: flex; flex-direction: row;">
+                    <div class="input-group mb-3">
+                        <input type="text" name="searchTerm"
+                               class="form-control" placeholder="Search for a project.."
+                               aria-label="Recipient's username"
+                               aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <span class="input-group-text hover-ef" id="basic-addon2">
+                              <i class="fa fa-search" style="color: #3440eb;"></i>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="members">a</div>
+            <div class="teams">a</div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
