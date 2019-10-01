@@ -38,6 +38,10 @@ public class Member extends BaseEntity<Long> implements UserDetails {
     private Role role;
 
     @Transient
+    @ManyToMany(mappedBy = "teamMembers")
+    private Set<Team> teams;
+
+    @Transient
     private boolean accountNonExpired;
     @Transient
     private boolean accountNonLocked;

@@ -1,17 +1,22 @@
 package com.projectmanagement.saasovation.team.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name="team")
 public class Team extends BaseEntity<Long> {
 
-    private Set<Member> teamMembers;
     private String teamName;
+
+    @ManyToMany
+    @JoinTable(
+            name = "team_members",
+            joinColumns = @JoinColumn(name = "team_id"),
+            inverseJoinColumns = @JoinColumn(name = "member_id"))
+    private Set<Member> teamMembers;
+
 
     public Team(){ }
 
