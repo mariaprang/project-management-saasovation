@@ -75,10 +75,11 @@ body {
 }
 
 .create-proj-btn {
-    background-color: #bfbfbf;
-    border-radius: 4px;
-    color: #595959;
-    font-weight: bold;
+    background-color: #bfbfbf !important;
+    border-radius: 4px !important;
+    color: #002db3 !important;
+    font-weight: bold !important;
+    margin-bottom: 10px !important;
 }
 
 .create-proj-btn:hover {
@@ -284,6 +285,7 @@ body {
     padding: 10px 16px;
     text-decoration: none;
     display: block;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 /* Change color of dropdown links on hover */
