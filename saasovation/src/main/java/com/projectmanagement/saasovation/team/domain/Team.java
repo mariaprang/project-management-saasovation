@@ -27,8 +27,9 @@ public class Team extends BaseEntity <Long> {
     public Team() {
     }
 
-    public Team(String teamName) {
+    public Team(String teamName, Project project) {
         this.teamName = teamName;
+        this.project = project;
         this.teamMembers = new HashSet <>();
     }
 

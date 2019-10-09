@@ -56,7 +56,7 @@ public class InitialData {
         Project project = new Project("Marketing Creatives", member, ProjectType.Business.getMessage());
 
 
-        Team team = new Team("Team ONE");
+        Team team = new Team("Team ONE", project);
         team.addTeamMember(member);
         team.addTeamMember(member2);
         team.addTeamMember(member3);
