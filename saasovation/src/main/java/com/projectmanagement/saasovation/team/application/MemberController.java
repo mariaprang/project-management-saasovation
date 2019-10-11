@@ -63,10 +63,9 @@ public class MemberController {
             }
             model.addAttribute("allMembers", projectMembers);
 
-            return "project";
+            return "redirect:/projects/"+id;
         } else {
             model.addAttribute("errorMessage", "Member with these credentials doesn't exist!");
-            log.info("ERROR DISPLAYED!!!!!");
             return "project";
         }
 

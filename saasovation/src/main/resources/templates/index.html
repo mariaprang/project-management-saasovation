@@ -61,7 +61,7 @@
                     <div class="project-type col-item" th:text="${project.projectType}"></div>
                     <div class="project-owner col-item"
                          th:text="${project.projectOwner.firstName+' '+project.projectOwner.lastName}"></div>
-                    <form th:action="@{/projects/{id}(id=${project.id})}" method="post" class="col-item">
+                    <form th:action="@{/projects/{id}(id=${project.id})}" method="get" class="col-item">
                         <!--class="nav-btn drop-style"-->
                         <input th:if="${project.checkIFValidOwner(member) == true}"
                                type="submit"

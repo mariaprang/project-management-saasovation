@@ -64,9 +64,9 @@
                                             class="custom-select"
                                             name="fullName" style="height: auto;"
                                             id="inputGroupSelect03">
-                                        <div  th:each="member : ${allMembers}">
-                                            <option th:value="${member.firstName+' '+member.lastName}"
-                                                    th:text="${member.firstName+' '+member.lastName}">
+                                        <div  th:each="allMember : ${allMembers}">
+                                            <option th:value="${allMember.firstName+' '+allMember.lastName}"
+                                                    th:text="${allMember.firstName+' '+allMember.lastName}">
                                             </option>
                                         </div>
 
