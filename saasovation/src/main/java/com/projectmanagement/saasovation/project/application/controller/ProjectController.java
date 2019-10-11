@@ -45,26 +45,13 @@ public class ProjectController {
         model.addAttribute("projectMembers", projectMembers);
 
         List<Member> allMembers = memberRepository.findAllMembers();
+
+         allMembers.removeAll(projectMembers);
+
+
+
         model.addAttribute("allMembers", allMembers);
         return "project";
     }
 
-//    @GetMapping(value = {"/projects/{id}"})
-//    public String getProject(@PathVariable("id") long id, Model model) {
-//        Project project = projectRepository.findProjectById(id);
-//        model.addAttribute("project", project);
-//        Set <Member> projectMembers = new HashSet <>();
-//        model.addAttribute("teams", project.getTeams());
-//
-//        for (Team team : project.getTeams()) {
-//            for (Member member : team.getTeamMembers()) {
-//                projectMembers.add(member);
-//            }
-//        }
-//        model.addAttribute("projectMembers", projectMembers);
-//
-//        List<Member> allMembers = memberRepository.findAllMembers();
-//        model.addAttribute("allMembers", allMembers);
-//        return "project";
-//    }
 }

@@ -66,6 +66,16 @@ public class Team extends BaseEntity <Long> {
         this.project = project;
     }
 
+
+    public boolean checkIfTeamMember(Member member){
+        for(Member teamMember : this.getTeamMembers()){
+            if(teamMember.equals(member)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * --------------------------------------------------
      */
