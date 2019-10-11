@@ -32,26 +32,28 @@ public class MemberController {
 
     private static final Logger log = LoggerFactory.getLogger(MemberController.class);
 
-
     @PostMapping("/newMemberForProject/{id}")
     public String createTeam(@PathVariable("id") long id,
                              @RequestParam("fullName") String fullName,
                              @RequestParam("teamName") String teamName,
                              Model model) throws Exception {
 
-        String [] memberCredentials = fullName.split(" ");
+        String[] memberCredentials = fullName.split(" ");
 
         Member member = memberRepository.loadMemberByFullName(memberCredentials[0], memberCredentials[1]);
         Project project = projectRepository.findProjectById(id);
         model.addAttribute("project", project);
 
-        if (member != null) {
 
-            Team team = new Team(teamName, project);
+        if (member != null) {
+            /* A method being called from the ProjectAggregate class*/
+            Team team = project.checkIfExists(teamName);
+            if (team == null) {
+                team = new Team(teamName, project);
+            }
             team.addTeamMember(member);
             member.addTeam(team);
             teamRepository.saveTeam(team);
-
 
             Set <Member> projectMembers = new HashSet <>();
             model.addAttribute("teams", project.getTeams());
@@ -63,7 +65,7 @@ public class MemberController {
             }
             model.addAttribute("allMembers", projectMembers);
 
-            return "redirect:/projects/"+id;
+            return "redirect:/projects/" + id;
         } else {
             model.addAttribute("errorMessage", "Member with these credentials doesn't exist!");
             return "project";

@@ -70,13 +70,21 @@ public class Team extends BaseEntity <Long> {
      * --------------------------------------------------
      */
 
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        if (!super.equals(o)) return false;
+//        Team team = (Team) o;
+//        return this.getId() == team.getId() && this.teamName.equalsIgnoreCase(team.teamName);
+//    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         Team team = (Team) o;
-        return this.getId() == team.getId() && this.teamName.equalsIgnoreCase(team.teamName);
+        return this.getTeamName().equalsIgnoreCase(team.getTeamName());
     }
 
     @Override

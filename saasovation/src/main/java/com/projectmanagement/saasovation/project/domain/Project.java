@@ -85,6 +85,15 @@ public class Project extends BaseEntity <Long> {
         return this.teams.remove(team);
     }
 
+    public Team checkIfExists(String teamType) {
+        for (Team team : this.getTeams()) {
+            if (team.getTeamName().equalsIgnoreCase(teamType)) {
+                return team;
+            }
+        }
+        return null;
+    }
+
     /**
      * ------------------------------------------
      **/
