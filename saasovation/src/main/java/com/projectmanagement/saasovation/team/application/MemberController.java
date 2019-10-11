@@ -2,7 +2,6 @@ package com.projectmanagement.saasovation.team.application;
 
 import com.projectmanagement.saasovation.project.domain.Project;
 import com.projectmanagement.saasovation.project.infrastructure.ProjectRepository;
-import com.projectmanagement.saasovation.saasovation_common.data.InitialData;
 import com.projectmanagement.saasovation.team.domain.Member;
 import com.projectmanagement.saasovation.team.domain.Team;
 import com.projectmanagement.saasovation.team.infrustructure.repositories.member.MemberRepository;
@@ -39,26 +38,22 @@ public class MemberController {
                              @RequestParam("fullName") String fullName,
                              @RequestParam("teamName") String teamName,
                              Model model) throws Exception {
-        String[] nameCredentials = fullName.split(" ");
-        Member member = memberRepository.loadMemberByFullName(nameCredentials[0], nameCredentials[1]);
-        if (member == null) {
-            member = memberRepository.loadMemberByFullName(nameCredentials[1], nameCredentials[0]);
-        }
-        if (member == null) {
-            model.addAttribute("errorMessage", "Member with these credentials doesn't exist!");
-            log.info("ERROR DISPLAYED!!!!!");
-            return "project";
-        } else {
 
+        String [] memberCredentials = fullName.split(" ");
 
-            Project project = projectRepository.findProjectById(id);
+        Member member = memberRepository.loadMemberByFullName(memberCredentials[0], memberCredentials[1]);
+        Project project = projectRepository.findProjectById(id);
+        model.addAttribute("project", project);
+
+        if (member != null) {
+
             Team team = new Team(teamName, project);
             team.addTeamMember(member);
             member.addTeam(team);
             teamRepository.saveTeam(team);
 
-            model.addAttribute("project", project);
-            Set<Member> projectMembers = new HashSet<>();
+
+            Set <Member> projectMembers = new HashSet <>();
             model.addAttribute("teams", project.getTeams());
 
             for (Team teamchik : project.getTeams()) {
@@ -67,9 +62,15 @@ public class MemberController {
                 }
             }
             model.addAttribute("allMembers", projectMembers);
+
+            return "project";
+        } else {
+            model.addAttribute("errorMessage", "Member with these credentials doesn't exist!");
+            log.info("ERROR DISPLAYED!!!!!");
+            return "project";
         }
 
-        return "project";
+
     }
 
 }

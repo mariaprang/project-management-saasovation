@@ -4,6 +4,7 @@ import com.projectmanagement.saasovation.project.domain.Project;
 import com.projectmanagement.saasovation.project.infrastructure.ProjectRepository;
 import com.projectmanagement.saasovation.team.domain.Member;
 import com.projectmanagement.saasovation.team.domain.Team;
+import com.projectmanagement.saasovation.team.infrustructure.repositories.member.MemberRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -21,7 +23,10 @@ public class ProjectController {
     private static final Logger log = LoggerFactory.getLogger(ProjectController.class);
 
     @Autowired
-    ProjectRepository projectRepository;
+    private ProjectRepository projectRepository;
+
+    @Autowired
+    private MemberRepository memberRepository;
 
 
     @PostMapping(value = {"/projects/{id}"})
@@ -36,7 +41,10 @@ public class ProjectController {
                 projectMembers.add(member);
             }
         }
-        model.addAttribute("allMembers", projectMembers);
+        model.addAttribute("projectMembers", projectMembers);
+
+        List<Member> allMembers = memberRepository.findAllMembers();
+        model.addAttribute("allMembers", allMembers);
         return "project";
     }
 }

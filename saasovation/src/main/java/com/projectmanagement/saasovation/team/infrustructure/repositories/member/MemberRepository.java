@@ -6,6 +6,8 @@ import com.projectmanagement.saasovation.team.infrustructure.validation.MemberVa
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class MemberRepository {
 
@@ -28,6 +30,10 @@ public class MemberRepository {
 
     public Member loadMemberByFullName(String firstName, String lastName){
         return memberRepository.findMemberByFullName(firstName, lastName);
+    }
+
+    public List<Member> findAllMembers(){
+        return memberRepository.findAll();
     }
 
 

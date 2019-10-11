@@ -4,6 +4,7 @@ import com.projectmanagement.saasovation.project.application.service.ProjectSear
 import com.projectmanagement.saasovation.project.domain.Project;
 import com.projectmanagement.saasovation.project.infrastructure.ProjectRepository;
 import com.projectmanagement.saasovation.team.domain.Member;
+import com.projectmanagement.saasovation.team.infrustructure.repositories.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,9 @@ public class DashboardController {
 
     @Autowired
     private ProjectSearchService projectSearchService;
+
+    @Autowired
+    private MemberRepository memberRepository;
 
     @RequestMapping(value = {"/index","/"}, method = {RequestMethod.GET})
     public String getUserAccount(Model model) {
@@ -57,8 +61,6 @@ public class DashboardController {
         model.addAttribute("projects", projectList);
         return "index";
     }
-
-
 
     @RequestMapping(value = "/user")
     public Principal user(Principal principal) {

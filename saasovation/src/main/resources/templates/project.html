@@ -92,7 +92,7 @@
                         <i class="fas fa-sort-down" style="color:blue;margin-bottom:3px;"></i>
                     </button>
                     <div class="dropdown-content">
-                        <div th:each="member : ${allMembers}">
+                        <div th:each="member : ${projectMembers}">
                             <div class="single-member" th:text="${member.firstName+' '+member.lastName}"></div>
                         </div>
                     </div>
