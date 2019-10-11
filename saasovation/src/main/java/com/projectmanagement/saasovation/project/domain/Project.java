@@ -1,5 +1,6 @@
 package com.projectmanagement.saasovation.project.domain;
 
+import com.projectmanagement.saasovation.board.Board;
 import com.projectmanagement.saasovation.team.domain.BaseEntity;
 import com.projectmanagement.saasovation.team.domain.Member;
 import com.projectmanagement.saasovation.team.domain.Team;
@@ -32,6 +33,9 @@ public class Project extends BaseEntity <Long> {
 
     @OneToMany(mappedBy = "project")
     private Set <Team> teams;
+
+    @OneToMany(mappedBy = "project")
+    private Set<Board> boards;
 
     public Project() {
         super();
