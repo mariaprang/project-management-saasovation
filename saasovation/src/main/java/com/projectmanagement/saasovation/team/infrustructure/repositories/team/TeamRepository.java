@@ -12,11 +12,11 @@ public class TeamRepository {
     @Autowired
     private ITeamRepository teamRepository;
 
-    public void saveTeam(Team team){
-         teamRepository.save(team);
+    public void saveTeam(Team team) {
+        teamRepository.save(team);
     }
 
-    public List <Team> getAllTeams(){
+    public List <Team> getAllTeams() {
         return teamRepository.findAll();
     }
 

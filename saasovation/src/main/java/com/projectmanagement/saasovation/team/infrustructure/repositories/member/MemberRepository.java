@@ -26,6 +26,10 @@ public class MemberRepository {
         return memberRepository.findMemberByUsername(username);
     }
 
+    public Member loadMemberByFullName(String firstName, String lastName){
+        return memberRepository.findMemberByFullName(firstName, lastName);
+    }
+
 
 
 }

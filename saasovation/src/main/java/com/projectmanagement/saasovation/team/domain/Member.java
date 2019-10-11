@@ -61,6 +61,7 @@ public class Member extends BaseEntity<Long> implements UserDetails {
         this.accountNonLocked = true;
         this.credentialsNonExpired = true;
         this.enabled = true;
+        this.teams = new HashSet <>();
     }
 
     public Member(){
@@ -68,6 +69,7 @@ public class Member extends BaseEntity<Long> implements UserDetails {
         this.accountNonLocked = true;
         this.credentialsNonExpired = true;
         this.enabled = true;
+        this.teams = new HashSet <>();
     }
 
 
@@ -128,6 +130,17 @@ public class Member extends BaseEntity<Long> implements UserDetails {
         return Arrays.asList(new SimpleGrantedAuthority(Role.USER.toString()));
     }
 
+    /**
+     * methods typical for aggregate object
+     **/
+
+    public void addTeam(Team team) {
+        teams.add(team);
+    }
+    /**
+     * --------------------------------------------------
+     */
+
 
     public String getPassword() {
         return password;
@@ -171,5 +184,7 @@ public class Member extends BaseEntity<Long> implements UserDetails {
     public int hashCode() {
         return Objects.hash(super.hashCode(), email, username);
     }
+
+
 }
 
