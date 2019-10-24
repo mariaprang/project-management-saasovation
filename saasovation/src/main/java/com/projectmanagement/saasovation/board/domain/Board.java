@@ -1,6 +1,7 @@
 package com.projectmanagement.saasovation.board.domain;
 
 import com.projectmanagement.saasovation.project.domain.Project;
+import com.projectmanagement.saasovation.task.domain.Task;
 import com.projectmanagement.saasovation.team.domain.BaseEntity;
 import com.projectmanagement.saasovation.team.domain.Team;
 
@@ -15,7 +16,7 @@ public class Board extends BaseEntity<Long>{
 
     @Transient
     @OneToMany(mappedBy = "taskBoard")
-    private Set<Team> tasks;
+    private Set<Task> tasks;
 
     @Column(name="board_name")
     private String boardName;
@@ -35,7 +36,7 @@ public class Board extends BaseEntity<Long>{
         return project;
     }
 
-    public Set <Team> getTasks() {
+    public Set <Task> getTasks() {
         return tasks;
     }
 
@@ -51,7 +52,7 @@ public class Board extends BaseEntity<Long>{
         this.boardName = boardName;
     }
 
-    public void setTasks(Set <Team> tasks) {
+    public void setTasks(Set <Task> tasks) {
         this.tasks = tasks;
     }
 

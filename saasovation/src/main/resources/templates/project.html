@@ -115,6 +115,24 @@
             </div>
         </div>
 
+        <div class="boards">
+            <div th:each="board : ${boards}">
+                <div class="single-board">
+                    <div th:text="${board.boardName}" class="board-title"></div>
+                    <div>
+                        <div class="single-task">
+                            <div class="task-title">Task text goes here</div>
+                            <div class="assigned-to">Assignee: Someone</div>
+                        </div>
+                    </div>
+                    <form>
+                        <input type="text" name="taskName"/>
+                        <input type="submit" value="Create task" class="btn btn-primary"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+
 
         <div th:replace="fragments/add-member-modal.html :: header"></div>
 
