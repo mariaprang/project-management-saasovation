@@ -89,6 +89,8 @@ public class Team extends BaseEntity <Long> {
 //        return this.getId() == team.getId() && this.teamName.equalsIgnoreCase(team.teamName);
 //    }
 
+
+    //Objects?
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

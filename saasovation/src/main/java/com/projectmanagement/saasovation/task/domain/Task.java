@@ -1,7 +1,7 @@
 package com.projectmanagement.saasovation.task.domain;
 
 
-import com.projectmanagement.saasovation.board.Board;
+import com.projectmanagement.saasovation.board.domain.Board;
 import com.projectmanagement.saasovation.team.domain.BaseEntity;
 
 import javax.persistence.Entity;

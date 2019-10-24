@@ -1,6 +1,6 @@
 package com.projectmanagement.saasovation.project.domain;
 
-import com.projectmanagement.saasovation.board.Board;
+import com.projectmanagement.saasovation.board.domain.Board;
 import com.projectmanagement.saasovation.team.domain.BaseEntity;
 import com.projectmanagement.saasovation.team.domain.Member;
 import com.projectmanagement.saasovation.team.domain.Team;

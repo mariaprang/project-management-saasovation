@@ -1,5 +1,7 @@
 package com.projectmanagement.saasovation.project.application.controller;
 
+import com.projectmanagement.saasovation.board.domain.Board;
+import com.projectmanagement.saasovation.board.infrustructure.BoardRepository;
 import com.projectmanagement.saasovation.project.domain.Project;
 import com.projectmanagement.saasovation.project.infrastructure.ProjectRepository;
 import com.projectmanagement.saasovation.team.domain.Member;
@@ -29,6 +31,9 @@ public class ProjectController {
     @Autowired
     private MemberRepository memberRepository;
 
+    @Autowired
+    private BoardRepository repository;
+
 
     @GetMapping(value = {"/projects/{id}"})
     public String getProjectView(@PathVariable("id") long id, Model model) {
@@ -51,7 +56,13 @@ public class ProjectController {
 
 
         model.addAttribute("allMembers", allMembers);
+        model.addAttribute("boards", getBoardsForProject());
         return "project";
+    }
+
+    private List<Board> getBoardsForProject(){
+        List<Board> boards = repository.listAllBoards();
+        return boards;
     }
 
 }
