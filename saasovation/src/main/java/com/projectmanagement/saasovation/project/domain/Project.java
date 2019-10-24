@@ -35,7 +35,7 @@ public class Project extends BaseEntity <Long> {
     private Set <Team> teams;
 
     @OneToMany(mappedBy = "project")
-    private Set<Board> boards;
+    private Set <Board> boards;
 
     public Project() {
         super();
@@ -96,6 +96,10 @@ public class Project extends BaseEntity <Long> {
             }
         }
         return null;
+    }
+
+    public boolean addBoard(Board board) {
+        return boards.add(board);
     }
 
     /**

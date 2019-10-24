@@ -25,6 +25,36 @@ public class Board extends BaseEntity<Long>{
     private Project project;
 
 
+    public Board (){}
+
+    public Board(String boardName){
+        this.boardName = boardName;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public Set <Team> getTasks() {
+        return tasks;
+    }
+
+    public String getBoardName() {
+        return boardName;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public void setBoardName(String boardName) {
+        this.boardName = boardName;
+    }
+
+    public void setTasks(Set <Team> tasks) {
+        this.tasks = tasks;
+    }
+
     @Override
     public String toString() {
         return "Board{" +

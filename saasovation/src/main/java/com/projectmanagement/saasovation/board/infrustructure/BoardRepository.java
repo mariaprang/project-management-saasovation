@@ -10,17 +10,17 @@ import java.util.List;
 public class BoardRepository {
 
     @Autowired
-    private BoardRepository boardRepository;
+    private IBoardRepository boardRepository;
 
     public void createBoard(Board board){
-        boardRepository.createBoard(board);
+        boardRepository.save(board);
     }
 
     public void deleteBoard(Board boardToDelete){
-        boardRepository.deleteBoard(boardToDelete);
+        boardRepository.delete(boardToDelete);
     }
 
     public List<Board> listAllBoards(){
-        return boardRepository.listAllBoards();
+        return boardRepository.findAll();
     }
 }
