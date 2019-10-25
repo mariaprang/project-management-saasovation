@@ -4,6 +4,8 @@ import com.projectmanagement.saasovation.board.domain.Board;
 import com.projectmanagement.saasovation.board.infrustructure.BoardRepository;
 import com.projectmanagement.saasovation.project.domain.Project;
 import com.projectmanagement.saasovation.project.infrastructure.ProjectRepository;
+import com.projectmanagement.saasovation.task.domain.Task;
+import com.projectmanagement.saasovation.task.infrustructure.TaskRepository;
 import com.projectmanagement.saasovation.team.domain.Member;
 import com.projectmanagement.saasovation.team.domain.Team;
 import com.projectmanagement.saasovation.team.infrustructure.repositories.member.MemberRepository;
@@ -14,8 +16,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -32,7 +34,10 @@ public class ProjectController {
     private MemberRepository memberRepository;
 
     @Autowired
-    private BoardRepository repository;
+    private BoardRepository boardRepository;
+
+    @Autowired
+    private TaskRepository taskRepository;
 
 
     @GetMapping(value = {"/projects/{id}"})
@@ -49,20 +54,31 @@ public class ProjectController {
         }
         model.addAttribute("projectMembers", projectMembers);
 
-        List<Member> allMembers = memberRepository.findAllMembers();
+        List <Member> allMembers = memberRepository.findAllMembers();
 
-         allMembers.removeAll(projectMembers);
-
+        allMembers.removeAll(projectMembers);
 
 
         model.addAttribute("allMembers", allMembers);
-        model.addAttribute("boards", getBoardsForProject());
+        model.addAttribute("boards", getBoardsForProject(id));
+        model.addAttribute("tasks", taskRepository.getAllTasks());
         return "project";
     }
 
-    private List<Board> getBoardsForProject(){
-        List<Board> boards = repository.listAllBoards();
+    private List <Board> getBoardsForProject(Long projectID) {
+        List<Board> boards = new ArrayList <>();
+       for(Board board : boardRepository.listAllBoards()){
+           if(board.getProject().getId().equals(projectID)){
+               boards.add(board);
+           }
+       }
         return boards;
     }
+
+//    private List<Task> converToList(Set<Task> tasks){
+//        List list = new ArrayList();
+//        list.addAll(tasks);
+//        return list;
+//    }
 
 }

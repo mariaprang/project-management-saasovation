@@ -50,7 +50,8 @@
                     member
                 </button>
 
-                <button type="button" class="btn create-proj-btn" data-toggle="modal" data-target="#boardModal">Add board
+                <button type="button" class="btn create-proj-btn" data-toggle="modal" data-target="#boardModal">Add
+                    board
                 </button>
 
                 <form action="">
@@ -113,34 +114,43 @@
         </div>
 
         <div class="boards">
+
+
             <div th:each="board : ${boards}">
-                <div class="single-board">
-                    <div th:text="${board.boardName}" class="board-title"></div>
-                    <div>
-                        <div class="single-task">
-                            <div class="task-title">Task text goes here</div>
-                            <div class="assigned-to">Assignee: Someone</div>
-                        </div>
-                    </div>
+                <div class="single-board" th:id="${board.id}">
+                    <div th:text="${board.boardName+' '+board.id}" th:class="board-title"></div>
+
+                    <!--<button type="button" class="btn create-proj-btn" data-toggle="modal"-->
+                    <!--data-target="#createTaskModal">+-->
+                    <!--</button>-->
+
+                    <!--<button type="button" class="btn create-proj-btn" data-toggle="modal"-->
+                            <!--data-target="#createTaskModal" th:attrappend="data-target=${board.id}">+-->
+                    <!--</button>-->
+
+                    <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#createTaskModal">+ </button>-->
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#createTaskModal" th:attrappend="data-target=${board.id}">+ </button>
 
 
-                        <input type="text" name="taskName"/>
-                        <button type="button" class="btn create-proj-btn" data-toggle="modal" data-target="#createTaskModal">Create task
-                        </button>
+                    <div th:replace="fragments/create-task-modal.html :: header"></div>
 
-                        <div th:replace="fragments/add-task-modal.html :: header"></div>
+
                 </div>
+
             </div>
         </div>
 
 
-        <div th:replace="fragments/add-member-modal.html :: header"></div>
-
-        <div th:replace="fragments/add-board-modal.html ::header"></div>
-
-        <div th:replace="fragments/new-team-modal.html ::header"></div>
-
     </div>
+
+
+    <div th:replace="fragments/add-member-modal.html :: header"></div>
+
+    <div th:replace="fragments/add-board-modal.html ::header"></div>
+
+    <div th:replace="fragments/new-team-modal.html ::header"></div>
+
+</div>
 
 
 </div>

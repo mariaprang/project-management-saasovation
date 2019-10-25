@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,13 +32,16 @@ public class TaskController {
     private MemberRepository memberRepository;
 
 
-    @RequestMapping("/createTaskForBoard/{id}")
-    private String addNewTask(@PathVariable("id") long id,
+    @RequestMapping("/createTaskForBoard/{boardID}/onProject{projID}")
+    private String addNewTask(@PathVariable("boardID") long boardID,
+                              @PathVariable("projID") long projID,
                               @RequestParam("fullName") String fullName,
                               @RequestParam("taskHeader") String taskHeader) {
 
-        Board board = boardRepository.getBoardById(id);
-       log.info("RIGHT HERE: "+board.toString());
+        printLogger("BOARD ID: "+boardID);
+        printLogger("PROJECT ID: "+projID);
+        Board board = boardRepository.getBoardById(boardID);
+
         String[] memberCredentials = fullName.split(" ");
 
         Member member = memberRepository.loadMemberByFullName(memberCredentials[0], memberCredentials[1]);
@@ -46,7 +50,17 @@ public class TaskController {
 
         assignTaskOnBoardToMember(member, board, task);
         taskRepository.createTask(task);
-        return "redirect:/projects/" + id;
+        return "redirect:/projects/" + projID;
+    }
+
+//    @RequestMapping("/showAllTasks")
+//    private String showAllTasks(Model model){
+//    }
+
+    private void printLogger(String message){
+        log.info("==============================================================");
+        log.info("********************"+message+"***************************");
+        log.info("==============================================================");
     }
 
     private void assignTaskOnBoardToMember(Member member, Board board, Task task){
