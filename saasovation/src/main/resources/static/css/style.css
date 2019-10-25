@@ -8,6 +8,26 @@ body {
     font-family: "Noto Sans", sans-serif;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 .content {
     width: 100%;
     display: flex;
@@ -166,24 +186,27 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
+    height: auto;
 }
 
 .sidebar {
     width: 5%;
-    height: 100vh;
+    /*height: 100vh;*/
+    height: auto;
     background-color: #0059b3;
 }
 
 .project-bar {
     width: 18%;
-    height: 100vh;
+    /*height: 100vh;*/
+    height: auto;
     background-color: #f0f2f4;
     align-items: center;
 }
 
 .project-container {
     width: 70%;
-    height: 100vh;
+    height: calc(100vh + 100px);
 }
 
 .project-page {
@@ -212,17 +235,17 @@ body {
     flex-direction: column;
 }
 
-.project-btn{
+.project-btn {
     color: blue;
     background-color: #e1e4ea;
     border-radius: 5px;
 }
 
-.project-btn:hover{
+.project-btn:hover {
     background-color: #b4bbcb;
 }
 
-.operation-wrap{
+.operation-wrap {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -230,27 +253,32 @@ body {
     margin: 0 auto;
     margin-top: 50px;
 }
-.sidebar-icon{
+
+.sidebar-icon {
     width: 35px;
     margin: 50px auto;
 }
+
 .fa-input {
-    cursor:pointer;
+    cursor: pointer;
     color: white;
     font-size: 27px;
     font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-.project-container{
+
+.project-container {
     padding: 50px;
     padding-top: 30px;
+    margin-bottom: 50px;
+
 }
 
-.project-heading-wrap{
+.project-heading-wrap {
     display: flex;
     flex-direction: row;
 }
 
-.members, .teams{
+.members, .teams {
     width: 15%;
     margin-left: 50px;
 }
@@ -259,7 +287,7 @@ body {
 .dropbtn {
     background-color: #bfbfbf;
     border-radius: 4px;
-    color:blue;
+    color: blue;
     border: none;
 }
 
@@ -275,7 +303,7 @@ body {
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -289,37 +317,58 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
     cursor: pointer;
 }
 
-.boards{
-   display: flex;
+.boards {
+    display: flex;
     flex-direction: row;
 }
 
-.single-board{
-    width: 200px;
+.single-board {
+    width: 225px;
     min-height: 200px;
-    background-color: #e6e6e6;
+    background-color: #E2E4E6;
     margin-right: 70px;
+    border-radius: 5px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 600px;
 }
 
-.board-title{
+.board-title {
     width: fit-content;
     margin: 0 auto;
     font-weight: bolder;
-    color: #595959;
+    color: #606060;
     text-transform: uppercase;
     padding: 10px;
 }
 
-.task-title{
+.task-wrap{
+    width: 100%;
+    background-color: white;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    padding: 3px;
+    color: #808080;
+    min-height: 100px;
+    box-shadow: 0 0 5px 2px rgba(0,0,0,.15);
+}
+
+.task-title {
 
 }
