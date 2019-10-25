@@ -41,6 +41,7 @@ public class TaskController {
         printLogger("BOARD ID: "+boardID);
         printLogger("PROJECT ID: "+projID);
         Board board = boardRepository.getBoardById(boardID);
+        printLogger(board.toString());
 
         String[] memberCredentials = fullName.split(" ");
 
@@ -50,6 +51,8 @@ public class TaskController {
 
         assignTaskOnBoardToMember(member, board, task);
         taskRepository.createTask(task);
+        boardRepository.createBoard(board);
+
         return "redirect:/projects/" + projID;
     }
 
@@ -64,10 +67,10 @@ public class TaskController {
     }
 
     private void assignTaskOnBoardToMember(Member member, Board board, Task task){
-        member.addTask(task);
-        board.addTaskToBoard(task);
         task.setTaskBoard(board);
         task.setProject(board.getProject());
         task.setTaskAssignedTo(member);
+        member.addTask(task);
+        board.addTaskToBoard(task);
     }
 }

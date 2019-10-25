@@ -18,6 +18,10 @@ public class BoardRepository {
         boardRepository.save(board);
     }
 
+    public void saveBoard(Board board){
+        boardRepository.save(board);
+    }
+
     public void deleteBoard(Board boardToDelete) {
         boardRepository.delete(boardToDelete);
     }
@@ -30,8 +34,8 @@ public class BoardRepository {
         return boardRepository.findById(id).get();
     }
 
-    public Set<Task> getTasksForBoard(Long id){
-        Board board = getBoardById(id);
-        return board.getTasks();
-    }
+//    public Set<Task> getTasksForBoard(Long id){
+//        Board board = getBoardById(id);
+//        return board.getTasks();
+//    }
 }

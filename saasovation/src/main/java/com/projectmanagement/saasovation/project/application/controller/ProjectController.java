@@ -69,11 +69,23 @@ public class ProjectController {
         List<Board> boards = new ArrayList <>();
        for(Board board : boardRepository.listAllBoards()){
            if(board.getProject().getId().equals(projectID)){
+               board.setTasks(getTasksForBoard(board.getId()));
                boards.add(board);
            }
        }
         return boards;
     }
+
+    private List<Task> getTasksForBoard(Long id){
+        List<Task> tasks = new ArrayList<>();
+        for(Task task : taskRepository.getAllTasks()){
+            if(task.getTaskBoard().getId().equals(id)){
+                tasks.add(task);
+            }
+        }
+        return tasks;
+    }
+
 
 //    private List<Task> converToList(Set<Task> tasks){
 //        List list = new ArrayList();

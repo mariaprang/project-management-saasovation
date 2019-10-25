@@ -6,9 +6,7 @@ import com.projectmanagement.saasovation.team.domain.BaseEntity;
 import com.projectmanagement.saasovation.team.domain.Team;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "board")
@@ -17,7 +15,7 @@ public class Board extends BaseEntity<Long>{
 
     @Transient
     @OneToMany(mappedBy = "taskBoard")
-    private Set<Task> tasks;
+    private List<Task> tasks;
 
     @Column(name="board_name")
     private String boardName;
@@ -28,19 +26,19 @@ public class Board extends BaseEntity<Long>{
 
 
     public Board (){
-        this.tasks= new HashSet <>();
+        this.tasks= new ArrayList <>();
     }
 
     public Board(String boardName){
         this.boardName = boardName;
-        this.tasks= new HashSet <>();
+        this.tasks= new ArrayList<>();
     }
 
     public Project getProject() {
         return project;
     }
 
-    public Set <Task> getTasks() {
+    public List<Task> getTasks() {
         return tasks;
     }
 
@@ -56,7 +54,7 @@ public class Board extends BaseEntity<Long>{
         this.boardName = boardName;
     }
 
-    public void setTasks(Set <Task> tasks) {
+    public void setTasks(List <Task> tasks) {
         this.tasks = tasks;
     }
 
