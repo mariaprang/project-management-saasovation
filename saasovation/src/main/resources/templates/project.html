@@ -50,9 +50,6 @@
                     member
                 </button>
 
-                <button type="button" class="btn create-proj-btn" data-toggle="modal" data-target="#myModal">Add task
-                </button>
-
                 <button type="button" class="btn create-proj-btn" data-toggle="modal" data-target="#boardModal">Add board
                 </button>
 
@@ -125,9 +122,13 @@
                             <div class="assigned-to">Assignee: Someone</div>
                         </div>
                     </div>
-                    <form>
+
+                    <form th:action="@{/createTaskForBoard/{id}(id=${board.id})}">
                         <input type="text" name="taskName"/>
-                        <input type="submit" value="Create task" class="btn btn-primary"/>
+                        <button type="button" class="btn create-proj-btn" data-toggle="modal" data-target="#createTaskModal">Create task
+                        </button>
+
+                        <div th:replace="fragments/add-task-modal.html :: header"></div>
                     </form>
                 </div>
             </div>

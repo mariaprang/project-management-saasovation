@@ -34,5 +34,11 @@ public class BoardController {
         return "redirect:/projects/" + id;
     }
 
+//    @RequestMapping("createTaskForBoard/{id}")
+//    public String createNewTaskForBoard(@PathVariable("id") long id,
+//                                        @RequestParam("taskTitle") String taskTitle){
+//
+//    }
+
 
 }
