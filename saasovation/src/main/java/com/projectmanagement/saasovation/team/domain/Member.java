@@ -1,8 +1,6 @@
 package com.projectmanagement.saasovation.team.domain;
 
-import com.projectmanagement.saasovation.project.domain.Project;
 import com.projectmanagement.saasovation.task.domain.Task;
-import org.hibernate.search.annotations.ContainedIn;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.TermVector;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,7 +13,7 @@ import java.util.*;
 @Embeddable
 @Entity
 @Table(name = "member")
-public class Member extends BaseEntity<Long> implements UserDetails {
+public class Member extends BaseEntity <Long> implements UserDetails {
 
     @Field(termVector = TermVector.YES)
     @Column(name = "first_name", nullable = false, unique = false)
@@ -39,7 +37,11 @@ public class Member extends BaseEntity<Long> implements UserDetails {
 
     @Transient
     @ManyToMany(mappedBy = "teamMembers")
-    private Set<Team> teams;
+    private Set <Team> teams;
+
+    @Transient
+    @ManyToMany(mappedBy = "assignedTo_id")
+    private Set <Task> tasks;
 
     @Transient
     private boolean accountNonExpired;
@@ -62,14 +64,16 @@ public class Member extends BaseEntity<Long> implements UserDetails {
         this.credentialsNonExpired = true;
         this.enabled = true;
         this.teams = new HashSet <>();
+        this.tasks = new HashSet <>();
     }
 
-    public Member(){
+    public Member() {
         this.accountNonExpired = true;
         this.accountNonLocked = true;
         this.credentialsNonExpired = true;
         this.enabled = true;
         this.teams = new HashSet <>();
+        this.tasks = new HashSet <>();
     }
 
 
@@ -126,20 +130,21 @@ public class Member extends BaseEntity<Long> implements UserDetails {
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+    public Collection <? extends GrantedAuthority> getAuthorities() {
         return Arrays.asList(new SimpleGrantedAuthority(Role.USER.toString()));
     }
 
-    /**
-     * methods typical for aggregate object
-     **/
+    /******************** AGGREGATE TYPICAL METHODS ***********************/
 
     public void addTeam(Team team) {
         teams.add(team);
     }
-    /**
-     * --------------------------------------------------
-     */
+
+    public void addTask(Task task) {
+        this.tasks.add(task);
+    }
+
+    /******************** AGGREGATE TYPICAL METHODS ***********************/
 
 
     public String getPassword() {

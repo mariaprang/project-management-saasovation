@@ -12,15 +12,19 @@ public class BoardRepository {
     @Autowired
     private IBoardRepository boardRepository;
 
-    public void createBoard(Board board){
+    public void createBoard(Board board) {
         boardRepository.save(board);
     }
 
-    public void deleteBoard(Board boardToDelete){
+    public void deleteBoard(Board boardToDelete) {
         boardRepository.delete(boardToDelete);
     }
 
-    public List<Board> listAllBoards(){
+    public List <Board> listAllBoards() {
         return boardRepository.findAll();
+    }
+
+    public Board getBoardById(Long id){
+        return boardRepository.findById(id).get();
     }
 }

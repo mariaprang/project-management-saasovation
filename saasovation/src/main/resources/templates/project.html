@@ -123,13 +123,12 @@
                         </div>
                     </div>
 
-                    <form th:action="@{/createTaskForBoard/{id}(id=${board.id})}">
+
                         <input type="text" name="taskName"/>
                         <button type="button" class="btn create-proj-btn" data-toggle="modal" data-target="#createTaskModal">Create task
                         </button>
 
                         <div th:replace="fragments/add-task-modal.html :: header"></div>
-                    </form>
                 </div>
             </div>
         </div>

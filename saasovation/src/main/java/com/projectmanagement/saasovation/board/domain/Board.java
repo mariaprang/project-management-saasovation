@@ -6,6 +6,7 @@ import com.projectmanagement.saasovation.team.domain.BaseEntity;
 import com.projectmanagement.saasovation.team.domain.Team;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -26,10 +27,13 @@ public class Board extends BaseEntity<Long>{
     private Project project;
 
 
-    public Board (){}
+    public Board (){
+        this.tasks= new HashSet <>();
+    }
 
     public Board(String boardName){
         this.boardName = boardName;
+        this.tasks= new HashSet <>();
     }
 
     public Project getProject() {
@@ -55,6 +59,15 @@ public class Board extends BaseEntity<Long>{
     public void setTasks(Set <Task> tasks) {
         this.tasks = tasks;
     }
+
+
+    /******************** AGGREGATE TYPICAL METHODS ***********************/
+
+    public void addTaskToBoard(Task task){
+        this.tasks.add(task);
+    }
+
+    /******************** AGGREGATE TYPICAL METHODS ***********************/
 
     @Override
     public String toString() {
