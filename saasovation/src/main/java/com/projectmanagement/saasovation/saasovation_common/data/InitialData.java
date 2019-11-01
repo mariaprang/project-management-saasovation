@@ -42,16 +42,16 @@ public class InitialData {
 
         Member member =
                 new Member("Maria", "Prangishvili",
-                        "test@email.com", "maria", passwordEncoder.encode("test"), Role.USER);
+                        "test@email.com", passwordEncoder.encode("test"), Role.USER);
         Member member2 =
                 new Member("Mike", "Krupskii",
-                        "test2@email.com", "mike", passwordEncoder.encode("test2"), Role.USER);
+                        "test2@email.com", passwordEncoder.encode("test2"), Role.USER);
         Member member3 =
                 new Member("Tom", "Johnson",
-                        "test3@email.com", "tom", passwordEncoder.encode("test3"), Role.USER);
+                        "test3@email.com", passwordEncoder.encode("test3"), Role.USER);
         Member member4 =
                 new Member("Johannes", "Tompson",
-                        "test4@email.com", "jojo", passwordEncoder.encode("test4"), Role.USER);
+                        "test4@email.com", passwordEncoder.encode("test4"), Role.USER);
 
         Project project = new Project("Marketing Creatives", member, ProjectType.Business.getMessage());
 

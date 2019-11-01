@@ -24,23 +24,4 @@ public class TeamController {
     @Autowired
     ProjectRepository projectRepository;
 
-
-//    @PostMapping("/newTeam/{id}")
-//    public String createTeam(@PathVariable("id") long id, @RequestParam("teamName") String teamName, Model model){
-//
-//        Project project = projectRepository.findProjectById(id);
-//        Team team = new Team(teamName, project);
-//        temTeamRepository.saveTeam(team);
-//        model.addAttribute("project", project);
-//        Set<Member> projectMembers = new HashSet<>();
-//        model.addAttribute("teams", project.getTeams());
-//
-//        for (Team teamchik : project.getTeams()) {
-//            for (Member member : teamchik.getTeamMembers()) {
-//                projectMembers.add(member);
-//            }
-//        }
-//        model.addAttribute("allMembers", projectMembers);
-//        return "project";
-//    }
 }

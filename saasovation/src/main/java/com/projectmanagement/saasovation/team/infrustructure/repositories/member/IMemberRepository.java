@@ -8,7 +8,7 @@ public interface IMemberRepository extends JpaRepository<Member, Long> {
 
     public Member findMemberById(Long id);
 
-    public Member findMemberByUsername(String username);
+    public Member findMemberByEmail(String email);
 
 //    @Query("SELECT m FROM member m WHERE LOWER(m.first_name) = LOWER(:firstName) and LOWER(m.last_name) = LOWER(:lastName)")
 //    public Member findMemberByFullName(@Param("firstName") String firstName, @Param("lastName") String lastName);

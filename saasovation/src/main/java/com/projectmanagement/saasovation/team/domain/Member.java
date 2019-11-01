@@ -25,9 +25,9 @@ public class Member extends BaseEntity <Long> implements UserDetails {
 
     @Column(name = "email", nullable = false, unique = false)
     private String email;
-
-    @Column(name = "username", nullable = false, unique = false)
-    private String username;
+//
+//    @Column(name = "username", nullable = false, unique = false)
+//    private String username;
 
     @Column(name = "password", nullable = false)
     private String password;
@@ -52,11 +52,10 @@ public class Member extends BaseEntity <Long> implements UserDetails {
     @Transient
     private boolean enabled;
 
-    public Member(String firstName, String lastName, String email, String username, String password, Role role) {
+    public Member(String firstName, String lastName, String email, String password, Role role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.username = username;
         this.password = password;
         this.role = role;
         this.accountNonExpired = true;
@@ -65,6 +64,7 @@ public class Member extends BaseEntity <Long> implements UserDetails {
         this.enabled = true;
         this.teams = new HashSet <>();
         this.tasks = new HashSet <>();
+       // this.setUsername();
     }
 
     public Member() {
@@ -74,6 +74,7 @@ public class Member extends BaseEntity <Long> implements UserDetails {
         this.enabled = true;
         this.teams = new HashSet <>();
         this.tasks = new HashSet <>();
+        //this.setUsername();
     }
 
 
@@ -102,7 +103,7 @@ public class Member extends BaseEntity <Long> implements UserDetails {
     }
 
     public String getUsername() {
-        return username;
+        return email;
     }
 
     @Override
@@ -125,9 +126,10 @@ public class Member extends BaseEntity <Long> implements UserDetails {
         return enabled;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+//    public void setUsername() {
+//        String firstNameFirstLetter = firstName.toLowerCase().substring(0,1);
+//        this.username = firstNameFirstLetter+lastName.toLowerCase()+getId();
+//    }
 
     @Override
     public Collection <? extends GrantedAuthority> getAuthorities() {
@@ -169,7 +171,7 @@ public class Member extends BaseEntity <Long> implements UserDetails {
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", username='" + username + '\'' +
+//                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", role=" + role +
                 '}';
@@ -181,13 +183,14 @@ public class Member extends BaseEntity <Long> implements UserDetails {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Member member = (Member) o;
-        return Objects.equals(email, member.email) &&
-                Objects.equals(username, member.username);
+        return Objects.equals(email, member.email);
+//                &&
+//                Objects.equals(username, member.username);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), email, username);
+        return Objects.hash(super.hashCode(), email);
     }
 
 
