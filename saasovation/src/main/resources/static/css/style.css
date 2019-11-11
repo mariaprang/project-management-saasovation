@@ -372,3 +372,8 @@ body {
 .task-title {
 
 }
+
+.custom-text-small{
+    color: red;
+    text-align: left !important;
+}
