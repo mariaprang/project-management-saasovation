@@ -20,10 +20,10 @@
 
             <input type="submit" class="btn btn-success btn-block"
                        th:value="Register">
-            <div th:if="${param.error}">
+            <div th:if="${errorMessage}">
                 <br>
                 <div class="alert alert-danger">
-                    <span>Either username or password are incorrect, please try again </span>
+                    <span th:text="${errorMessage}"></span>
                 </div>
             </div>
         </form>

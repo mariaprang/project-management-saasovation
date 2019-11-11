@@ -3,6 +3,7 @@ package com.projectmanagement.saasovation.team.application;
 import com.projectmanagement.saasovation.project.domain.Project;
 import com.projectmanagement.saasovation.project.infrastructure.ProjectRepository;
 import com.projectmanagement.saasovation.team.domain.Member;
+import com.projectmanagement.saasovation.team.domain.Role;
 import com.projectmanagement.saasovation.team.domain.Team;
 import com.projectmanagement.saasovation.team.infrustructure.repositories.member.MemberRepository;
 import com.projectmanagement.saasovation.team.infrustructure.repositories.team.TeamRepository;
@@ -11,10 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -70,6 +68,27 @@ public class MemberController {
         } else {
             model.addAttribute("errorMessage", "Member with these credentials doesn't exist!");
             return "project";
+        }
+
+    }
+
+    @RequestMapping(value="/registerNewMember")
+    public String registerNewMembers( @RequestParam("firstName") String firstName,
+                                      @RequestParam("lastName") String lastName,
+                                      @RequestParam("email") String email,
+                                      @RequestParam("password") String password,
+                                      @RequestParam("passwordRepeat") String passwordRepeat,
+                                      Model model) throws Exception {
+
+        if(password.equals(passwordRepeat)){
+            Member member = new Member(firstName, lastName, email, password, Role.USER);
+            memberRepository.saveMember(member);
+            return "redirect:/login";
+        }
+        else{
+            // TODO: add an error to model
+            model.addAttribute("errorMessage", "Password didn't match!");
+            return "register";
         }
 
     }
