@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
+import java.util.LinkedList;
 import java.util.List;
 
 @Controller
@@ -57,6 +58,7 @@ public class DashboardController {
         model.addAttribute("member_id", currentUser.getId());
         model.addAttribute("first_name", currentUser.getFirstName());
         model.addAttribute("last_name", currentUser.getLastName());
+
 
         model.addAttribute("projects", projectList);
         return "index";

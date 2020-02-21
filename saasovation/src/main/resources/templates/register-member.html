@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css"
+          th:href="@{css/style.css}" media="screen">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="col-md-6  offset-md-3" style="margin-top: 20%;">
+        <h2>Saasovation Project Management</h2><br/><br/>
+
+        <br>
+        <form th:action="@{/register-new-member}"  method="post">
+            <input type="text" name="firstName" class="form-control" placeholder="Enter first name"><br/>
+            <input type="text" name="lastName"  class="form-control" placeholder="Enter last name"><br/>
+            <input type="email" name="email" class="form-control" placeholder="name@example.com">
+            <input type="password" class="form-control" name="password" placeholder="Password"><br/>
+            <input type="password" class="form-control" name="passwordRepeat"  placeholder="Repeat password"><br/>
+            <input type="submit" class="btn btn-success btn-block" th:value="Register">
+        </form>
+
+    </div>
+
+</div>
+</body>
+</html>

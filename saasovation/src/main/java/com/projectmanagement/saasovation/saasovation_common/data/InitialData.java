@@ -56,14 +56,6 @@ public class InitialData {
         Project project = new Project("Marketing Creatives", member, ProjectType.Business.getMessage());
 
 
-//        Team team = new Team("Team ONE", project);
-//        team.addTeamMember(member);
-//        team.addTeamMember(member2);
-//        team.addTeamMember(member3);
-//        team.addTeamMember(member4);
-//        team.setProject(project);
-//        project.addTeamToProject(team);
-
         Project project2 = new Project("Travel Service Desk", member, ProjectType.ServiceDesk.getMessage());
         Project project3 = new Project("Teams in Space", member2, ProjectType.Software.getMessage());
 

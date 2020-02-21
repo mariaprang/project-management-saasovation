@@ -3,6 +3,7 @@ package com.projectmanagement.saasovation.team.infrustructure.repositories.membe
 import com.projectmanagement.saasovation.team.domain.Member;
 import com.projectmanagement.saasovation.team.infrustructure.validation.MemberValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -377,3 +377,12 @@ body {
     color: red;
     text-align: left !important;
 }
+
+.search-bar{
+    display:flex;
+    flex-direction: row;
+}
+
+input[type="submit"]{
+    padding: 5px;
+}

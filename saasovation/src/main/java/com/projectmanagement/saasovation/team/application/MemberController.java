@@ -43,7 +43,6 @@ public class MemberController {
         Project project = projectRepository.findProjectById(id);
         model.addAttribute("project", project);
 
-
         if (member != null) {
             /* A method being called from the ProjectAggregate class*/
             Team team = project.checkIfExists(teamName);
@@ -72,30 +71,30 @@ public class MemberController {
 
     }
 
-    @RequestMapping(value="/registerNewMember")
-    public String registerNewMembers( @RequestParam("firstName") String firstName,
-                                      @RequestParam("lastName") String lastName,
-                                      @RequestParam("email") String email,
-                                      @RequestParam("password") String password,
-                                      @RequestParam("passwordRepeat") String passwordRepeat,
-                                      Model model) throws Exception {
-
-        if(password.equals(passwordRepeat)){
-            Member member = new Member(firstName, lastName, email, password, Role.USER);
-            memberRepository.saveMember(member);
-            return "redirect:/login";
-        }
-        else{
-            // TODO: add an error to model
-            model.addAttribute("errorMessage", "Password didn't match!");
-            return "register";
-        }
-
-    }
+//    @RequestMapping(value = "/registerNewMember")
+//    public String registerNewMembers(@RequestParam("firstName") String firstName,
+//                                     @RequestParam("lastName") String lastName,
+//                                     @RequestParam("email") String email,
+//                                     @RequestParam("password") String password,
+//                                     @RequestParam("passwordRepeat") String passwordRepeat,
+//                                     Model model) throws Exception {
+//
+//      //  if (password.equals(passwordRepeat)) {
+//            Member member = new Member(firstName, lastName, email, password, Role.USER);
+//            log.info("****************************************************** PRINTING********************************" + member.toString());
+//            memberRepository.saveMember(member);
+//            return "redirect:/login";
+//       // } else {
+//       //     // TODO: add an error to model
+//         //   model.addAttribute("errorMessage", "Password didn't match!");
+//       //     return "register";
+//       // }
+//
+//    }
 
     @GetMapping("/register")
-    public String getRegistrationPage(){
-        return "register" ;
+    public String getRegistrationPage() {
+        return "register-member";
     }
 
 }

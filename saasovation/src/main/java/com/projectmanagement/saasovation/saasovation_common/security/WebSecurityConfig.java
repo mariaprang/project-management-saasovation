@@ -50,32 +50,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
-                .authorizeRequests().antMatchers("/login", "/project","/index", "/register", "/static/css/**", "/img/**").permitAll()
-                .anyRequest().authenticated()
+                .authorizeRequests()
+                .antMatchers( "/register", "/index", "/login", "/register-new-member").permitAll()
+                .anyRequest()
+
+                .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login").permitAll()
+                .loginPage("/login")
                 .defaultSuccessUrl("/index", true)
                 .failureUrl("/login?error")
                 .usernameParameter("email")
                 .passwordParameter("password")
-                .and().logout().invalidateHttpSession(true)
-                .logoutSuccessUrl("/login")
-                .clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/logout-success").permitAll();
+                .permitAll();
     }
-
-
-//
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.
-//                csrf().disable().antMatcher("/test")
-//                .authorizeRequests().antMatchers("/register", "/users/create", "/static/css/**", "/img/**").permitAll()
-//                .anyRequest().authenticated();
-//    }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
