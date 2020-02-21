@@ -1,56 +1,27 @@
-Project Title
-One Paragraph of project description goes here
+# "Saasovation" - a "Jira"-like project management system
 
-Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This project implements features required for a project management system. It enables company members to register, login, create new project boards, new tickets, add members to the task and to the team.
 
-Prerequisites
-What things you need to install the software and how to install them
+## Built With
 
-Give examples
-Installing
-A step by step series of examples that tell you how to get a development env running
+* [SpringBoot](https://spring.io/projects/spring-boot) - an open source Java-based framework.
+* [Hibernate](https://hibernate.org/) -  an object-relational mapping tool for the Java programming language.
+* [Bootstrap](https://getbootstrap.com/) -  an open source toolkit for developing with HTML, CSS, and JS.
+* [Thymeleaf](https://www.thymeleaf.org/) -  a modern server-side Java template engine for both web and standalone environments.
 
-Say what the step will be
 
-Give the example
-And repeat
+## Getting Started
+Spring Boot can be used with “classic” Java development tools or installed as a command line tool. Either way, you need Java SDK v1.8 or higher. Before you begin, you should check your current Java installation by using the following command:
 
-until finished
-End with an example of getting some data out of the system or using it for a little demo
+```
+$ java -version
+```
 
-Running the tests
-Explain how to run the automated tests for this system
+## Initial instructions
+Here are the credentials of initial "pre-created/registered" users (it might be beneficial to use these at start, as for demo purpose each member has certain project assigned to it initially): 
+1)	Email: test@gmail.com
+Password: test
+2)	Email: test2@gmail.com
+Password: test2
 
-Break down into end to end tests
-Explain what these tests test and why
 
-Give an example
-And coding style tests
-Explain what these tests test and why
-
-Give an example
-Deployment
-Add additional notes about how to deploy this on a live system
-
-Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-
-Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
-
-Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
-
-License
-This project is licensed under the MIT License - see the LICENSE.md file for details
-
-Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
