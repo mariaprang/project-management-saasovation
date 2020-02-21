@@ -30,6 +30,9 @@ An authenticated user is initially exposed to the following dashboard page:
 
 If user/member have created any project they are entitled to edit the project. Search can be used to quickly find a needed project based on a certain keyword. To submit search query either “pressing Enter” or clicking on the icon works. The page is updated with the search inquiry then.
 
+Initially there are no project members visible, project owner has to add them to the project. This is doable via the “add member” button that triggers the popup window that displays all members of the company and lets the project owner decide which member to add 
+
+
 ![add member here](/add-member.png)
 
 The members are then visible in the dropdown: 
@@ -37,7 +40,4 @@ The members are then visible in the dropdown:
 
 Members that were added to the project are now able to add boards and tickets to the boards:
 ![board image here](/board.png)
-
-
-Initially there are no project members visible, project owner has to add them to the project. This is doable via the “add member” button that triggers the popup window that displays all members of the company and lets the project owner decide which member to add 
 
