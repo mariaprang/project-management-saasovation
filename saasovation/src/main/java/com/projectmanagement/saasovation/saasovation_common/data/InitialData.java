@@ -42,10 +42,10 @@ public class InitialData {
 
         Member member =
                 new Member("Maria", "Prangishvili",
-                        "test@email.com", passwordEncoder.encode("test"), Role.USER);
+                        "test@gmail.com", passwordEncoder.encode("test"), Role.USER);
         Member member2 =
                 new Member("Mike", "Krupskii",
-                        "test2@email.com", passwordEncoder.encode("test2"), Role.USER);
+                        "test2@gmail.com", passwordEncoder.encode("test2"), Role.USER);
         Member member3 =
                 new Member("Tom", "Johnson",
                         "test3@email.com", passwordEncoder.encode("test3"), Role.USER);
@@ -54,8 +54,6 @@ public class InitialData {
                         "test4@email.com", passwordEncoder.encode("test4"), Role.USER);
 
         Project project = new Project("Marketing Creatives", member, ProjectType.Business.getMessage());
-
-
         Project project2 = new Project("Travel Service Desk", member, ProjectType.ServiceDesk.getMessage());
         Project project3 = new Project("Teams in Space", member2, ProjectType.Software.getMessage());
 
@@ -67,8 +65,6 @@ public class InitialData {
             projectRepository.saveProject(project2);
             projectRepository.saveProject(project3);
             projectRepository.saveProject(project);
-
-           // teamRepository.saveTeam(team);
         } catch (Exception ex) {
             log.info(ex.getMessage());
         }
