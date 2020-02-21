@@ -287,7 +287,8 @@ body {
 .dropbtn {
     background-color: #bfbfbf;
     border-radius: 4px;
-    color: blue;
+    /*color: blue;*/
+    padding: 10px;
     border: none;
 }
 
@@ -310,12 +311,14 @@ body {
 /* Links inside the dropdown */
 .dropdown-content > .single-member {
     color: black;
-    padding: 10px 16px;
+    padding: 18px;
     text-decoration: none;
     display: block;
     font-family: 'Source Sans Pro', sans-serif;
 }
-
+.single-member{
+    padding: 15px! important;
+}
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
     background-color: #ddd;
@@ -368,7 +371,9 @@ body {
     min-height: 100px;
     box-shadow: 0 0 5px 2px rgba(0,0,0,.15);
 }
-
+.task-wrap > div{
+    margin: auto 10px;
+}
 .task-title {
 
 }
