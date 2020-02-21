@@ -24,5 +24,7 @@ Password: test
 2)	Email: test2@gmail.com
 Password: test2
 
-![GitHub Logo](/board.png)
+## Initial instructions
+An authenticated user is initially exposed to the following dashboard page: 
+(/dashboard.png)
 Format: ![Alt Text](url)
